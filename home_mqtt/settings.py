@@ -25,12 +25,12 @@ SECRET_KEY = '!@c5dmdwl-9@a+x!b7%%&uk7a1d1)1ilgm3l&s+e8yh0#6(meg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+USER_APPS = [
+    'authentication'
+]
+
+THIRD_PARTY_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + USER_APPS + THIRD_PARTY_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,8 +84,12 @@ WSGI_APPLICATION = 'home_mqtt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dclbs9iubup5fs',
+        'USER': 'mgwfwmmzkepqxt',
+        'PASSWORD': 'b92e41523a5b6dfd7e67a574c2eebdeca1efa18765289d9f75724cd9f81a9d50',
+        'HOST': 'ec2-52-207-93-32.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
