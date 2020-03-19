@@ -1,0 +1,17 @@
+# Virtual Envs
+env/
+virtualenv/
+venv/
+
+# Subdir Pycache
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+
+# pycharm and vscode files
+.vscode/
+.idea/
+
+# local databases
+db.sqlite3
