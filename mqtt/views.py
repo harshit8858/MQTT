@@ -9,12 +9,12 @@ client.connect("broker.hivemq.com")  # MQTT server
 
 
 class checkMQTTApi(APIView):
-    @csrf_exempt
+    # @csrf_exempt
     def post(self, request):
         try:
             data = request_type(request)
             flag = int(data['flag'])
-            client.loop_start()  # start the loop
+            # client.loop_start()  # start the loop
             client.subscribe("home_mqtt_topic/1")
             if flag == 1:
                 client.publish("home_mqtt_topic/1", "ON")
@@ -22,7 +22,7 @@ class checkMQTTApi(APIView):
             else:
                 client.publish("home_mqtt_topic/1", "OFF")
                 msg = 'OFF'
-            client.loop_stop()  # stop the loop
+            # client.loop_stop()  # stop the loop
             status = 1
         except Exception as e:
             print(e)
