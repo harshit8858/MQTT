@@ -11,7 +11,7 @@ class checkMQTTApi(APIView):
     def post(self, request):
         try:
             data = request_type(request)
-            flag = data['flag']
+            flag = int(data['flag'])
             client.loop_start()  # start the loop
             client.subscribe("home_mqtt_topic/1")
             if flag == 1:

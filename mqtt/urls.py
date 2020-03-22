@@ -3,5 +3,5 @@ from .views import *
 
 
 urlpatterns = [
-    path('', checkMQTTApi)
+    path('', checkMQTTApi.as_view())
 ]
