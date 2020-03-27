@@ -24,7 +24,10 @@ SECRET_KEY = '!@c5dmdwl-9@a+x!b7%%&uk7a1d1)1ilgm3l&s+e8yh0#6(meg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_TRUSTED_ORIGINS = ['https://mqtt8858.herokuapp.com','https://mqtt8858.herokuapp.com/']
+
+# CSRF_TRUSTED_ORIGINS = ['https://mqtt8858.herokuapp.com','https://mqtt8858.herokuapp.com/']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -52,9 +55,9 @@ INSTALLED_APPS = DJANGO_APPS + USER_APPS + THIRD_PARTY_APPS
 
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
